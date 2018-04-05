@@ -1,0 +1,17 @@
+{
+  "hints": [
+    {
+      "name": "my-app.my-module.foo.parts.values",
+      "values": [
+        {
+          "value": "TRUE",
+          "description": "parts enable description."
+        },
+        {
+          "value": "FALSE",
+          "description": "parts disable description."
+        }
+      ]
+    }
+  ]
+}
