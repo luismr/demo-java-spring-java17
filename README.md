@@ -3,7 +3,7 @@
 環境
 
 * Java 1.8.0
-* Spring Boot 1.5.10
+* Spring Boot 1.5.11
 * Maven 3.5.2
 
 ## compile
@@ -17,11 +17,11 @@ mvn clean package
 ### executable jar
 
 ```text
-java -jar target\demo-java-spring-0.0.1-SNAPSHOT.jar
+java -jar target\demo-java-spring-0.0.2-SNAPSHOT.jar
 ```
 
 ```text
-java -jar -Dspring.profiles.active=dev target\demo-java-spring-0.0.1-SNAPSHOT.jar
+java -jar -Dspring.profiles.active=dev target\demo-java-spring-0.0.2-SNAPSHOT.jar
 ```
 
 ### spring boot maven plugin

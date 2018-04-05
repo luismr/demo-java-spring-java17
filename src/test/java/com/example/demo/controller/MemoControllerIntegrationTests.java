@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.DemoMavenSpring1Application;
+import com.example.demo.Application;
 import com.example.demo.entity.Memo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * コントローラーの結合テスト
  */
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {DemoMavenSpring1Application.class},
+@SpringBootTest(classes = {Application.class},
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class MemoControllerIntegrationTests {
 
