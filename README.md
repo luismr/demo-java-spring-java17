@@ -1,9 +1,9 @@
-# Spring Boot 1.5.11 Rest API application
+# Spring Boot 1.5 Rest API application
 
-環境
+Development environment
 
 * Java 1.8.0
-* Spring Boot 1.5.11
+* Spring Boot 1.5.13
 * Maven 3.5.2
 
 ## compile
@@ -17,11 +17,13 @@ mvn clean package
 ### executable jar
 
 ```text
-java -jar target\demo-java-spring-0.0.2-SNAPSHOT.jar
+java -jar .\target\demo.jar
 ```
 
+Specify a profile
+
 ```text
-java -jar -Dspring.profiles.active=dev target\demo-java-spring-0.0.2-SNAPSHOT.jar
+java -jar -Dspring.profiles.active=dev .\target\demo.jar
 ```
 
 ### spring boot maven plugin
@@ -30,11 +32,13 @@ java -jar -Dspring.profiles.active=dev target\demo-java-spring-0.0.2-SNAPSHOT.ja
 mvn spring-boot:run
 ```
 
+Specify a profile
+
 ```text
 mvn spring-boot:run -Drun.profiles=dev
 ```
 
-### api
+### API
 
 #### get
 
