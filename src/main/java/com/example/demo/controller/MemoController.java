@@ -31,7 +31,6 @@ public class MemoController {
 
     @GetMapping(path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Memo> id(@PathVariable(value = "id") Long id) {
-        System.out.println("id : " + id);
         Optional<Memo> memo = service.findById(id);
         return memo.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());

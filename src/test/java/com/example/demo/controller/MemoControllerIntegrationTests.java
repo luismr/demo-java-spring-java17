@@ -26,7 +26,7 @@ public class MemoControllerIntegrationTests {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    public void getOne() {
+    public void getMemo() {
         ResponseEntity<Memo> result = testRestTemplate.getForEntity("/app/memo/{id}", Memo.class, 1L);
 
         assertThat(result).isNotNull();
