@@ -15,34 +15,43 @@ import java.util.Optional;
 @Slf4j
 public class MemoServiceImpl implements MemoService {
 
-    private final MemoRepository repository;
+  private final MemoRepository repository;
 
-    public MemoServiceImpl(MemoRepository repository) {
-        this.repository = repository;
-    }
+  public MemoServiceImpl(MemoRepository repository) {
+    this.repository = repository;
+  }
 
-    @Transactional(readOnly = true)
-    @Override
-    public Optional<Memo> findById(Long id) {
-        return Optional.ofNullable(repository.findOne(id));
-    }
+  @Transactional(readOnly = true)
+  @Override
+  public Optional<Memo> findById(Long id) {
+    return Optional.ofNullable(repository.findOne(id));
+  }
 
-    @Transactional(readOnly = true)
-    @Override
-    public Page<Memo> findAll(Pageable page) {
-        return repository.findAll(page);
-    }
+  @Transactional(readOnly = true)
+  @Override
+  public Page<Memo> findAll(Pageable page) {
+    return repository.findAll(page);
+  }
 
-    @Transactional(timeout = 10)
-    @Override
-    public void store(Memo memo) {
-        repository.save(memo);
+  @Transactional(timeout = 10)
+  @Override
+  public void updateById(Long id, Memo memo) {
+    Memo targetMemo = repository.findOne(id);
+    if (targetMemo != null) {
+      targetMemo.merge(memo);
     }
+  }
 
-    @Transactional(timeout = 10)
-    @Override
-    public void removeById(Long id) {
-        repository.delete(id);
-    }
+  @Transactional(timeout = 10)
+  @Override
+  public void store(Memo memo) {
+    repository.save(memo);
+  }
+
+  @Transactional(timeout = 10)
+  @Override
+  public void removeById(Long id) {
+    repository.delete(id);
+  }
 
 }

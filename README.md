@@ -3,7 +3,7 @@
 Development environment
 
 * Oracle JDK 1.8.0
-* Spring Boot 1.5.15
+* Spring Boot 1.5.16
 * MySQL CE 5.7.19
 * Maven 3.5.4
 
@@ -75,6 +75,12 @@ new_memo.json
     "description": "new memo description",
     "done": false
 }
+```
+
+#### put
+
+```text
+curl -v -H "Content-Type:application/json" -d "{\"title\": \"update memo title\", \"description\": \"update memo description\", \"done\": false }" -X PUT "http://localhost:9000/app/memo/1"
 ```
 
 #### delete
