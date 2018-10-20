@@ -3,7 +3,7 @@
 Development environment
 
 * Oracle JDK 1.8.0
-* Spring Boot 1.5.16
+* Spring Boot 1.5.17
 * MySQL CE 5.7.19
 * Maven 3.5.4
 
