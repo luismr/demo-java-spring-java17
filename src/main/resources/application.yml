@@ -1,7 +1,7 @@
 # SPRING CORE
 spring:
   application:
-    name: java8 with spring-boot 1.5
+    name: java17 with spring-boot 2.7
 # OUTPUT
   output:
     ansi:
@@ -11,7 +11,7 @@ spring:
     active: dev
 # DATASOURCE
   datasource:
-    url: jdbc:mysql://localhost:3306/demo_db?useSSL=false
+    url: jdbc:mysql://localhost:43306/demo_db?useSSL=false
     username: demo_user
     password: demo_pass
     tomcat:
@@ -53,10 +53,12 @@ spring:
 # EMBEDDED SERVER CONFIGURATION
 server:
   port: 9000
-  servlet-path: /app
+  servlet:
+    context-path: /app
 
 logging:
-  file: demo.log
+  file:
+    name: demo.log
   level:
     root: info
     org.springframework: info
