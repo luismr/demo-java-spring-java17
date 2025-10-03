@@ -1,11 +1,11 @@
-# Spring Boot 2.7 Rest API application
+# Spring Boot 3.5 Rest API application
 
-**Upgraded Project**: This project has been upgraded to Java 17 and Spring Boot 2.7 using Amazon Q Developer and IntelliJ IDEA Community Edition.
+**Upgraded Project**: This project has been upgraded to Java 21 and Spring Boot 3.5 using Amazon Q Developer and IntelliJ IDEA Community Edition.
 
 Development environment
 
-* Amazon Corretto 17 (upgraded from JDK 11)
-* Spring Boot 2.7.18
+* Amazon Corretto 21 (upgraded from JDK 17)
+* Spring Boot 3.5.0
 * MySQL CE 5.7.19
 * Maven 3.5.4
 * Amazon Q Developer (AI assistant)
