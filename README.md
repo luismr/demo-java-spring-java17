@@ -1,11 +1,15 @@
-# Spring Boot 1.5 Rest API application
+# Spring Boot 2.7 Rest API application
+
+**Upgraded Project**: This project has been upgraded to Java 17 and Spring Boot 2.7 using Amazon Q Developer and IntelliJ IDEA Community Edition.
 
 Development environment
 
-* Oracle JDK 1.8.0
-* Spring Boot 1.5.17
+* Amazon Corretto 17 (upgraded from JDK 11)
+* Spring Boot 2.7.18
 * MySQL CE 5.7.19
 * Maven 3.5.4
+* Amazon Q Developer (AI assistant)
+* IntelliJ IDEA Community Edition
 
 ## compile
 
@@ -36,7 +40,7 @@ mvn spring-boot:run
 Specify a profile
 
 ```text
-mvn spring-boot:run -Drun.profiles=dev
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
 ### API
