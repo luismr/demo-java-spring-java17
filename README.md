@@ -93,6 +93,22 @@ curl -v -H "Content-Type:application/json" -d "{\"title\": \"update memo title\"
 curl -v -X DELETE "http://localhost:9000/app/memo/1"
 ```
 
+## Docker
+
+Start MySQL database with Docker Compose:
+
+```text
+docker-compose up -d
+```
+
+Stop MySQL database:
+
+```text
+docker-compose down
+```
+
+The database will be automatically initialized with the demo_db database, demo_user, memo table, and sample data.
+
 ## database
 
 ```sql
