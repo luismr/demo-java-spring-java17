@@ -30,20 +30,20 @@ public class MemoController {
     this.service = service;
   }
 
-  @GetMapping(path = "{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @GetMapping(path = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<Memo> id(@PathVariable(value = "id") Long id) {
     Optional<Memo> memo = service.findById(id);
     return memo.map(ResponseEntity::ok)
         .orElseGet(() -> ResponseEntity.notFound().build());
   }
 
-  @GetMapping(path = "list", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @GetMapping(path = "list", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<List<Memo>> list(Pageable page) {
     Page<Memo> memos = service.findAll(page);
     return ResponseEntity.ok(memos.getContent());
   }
 
-  @PostMapping(produces = MediaType.TEXT_PLAIN_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+  @PostMapping(produces = MediaType.TEXT_PLAIN_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
   public String store(@RequestBody Memo memo) {
     service.store(memo);
     return "success";

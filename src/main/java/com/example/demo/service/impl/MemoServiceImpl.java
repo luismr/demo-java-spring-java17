@@ -24,7 +24,7 @@ public class MemoServiceImpl implements MemoService {
   @Transactional(readOnly = true)
   @Override
   public Optional<Memo> findById(Long id) {
-    return Optional.ofNullable(repository.findOne(id));
+    return repository.findById(id);
   }
 
   @Transactional(readOnly = true)
@@ -36,9 +36,9 @@ public class MemoServiceImpl implements MemoService {
   @Transactional(timeout = 10)
   @Override
   public void updateById(Long id, Memo memo) {
-    Memo targetMemo = repository.findOne(id);
-    if (targetMemo != null) {
-      targetMemo.merge(memo);
+    Optional<Memo> targetMemo = repository.findById(id);
+    if (targetMemo.isPresent()) {
+      targetMemo.get().merge(memo);
     }
   }
 
@@ -51,7 +51,7 @@ public class MemoServiceImpl implements MemoService {
   @Transactional(timeout = 10)
   @Override
   public void removeById(Long id) {
-    repository.delete(id);
+    repository.deleteById(id);
   }
 
 }
