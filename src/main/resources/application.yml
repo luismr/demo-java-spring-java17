@@ -1,7 +1,7 @@
 # SPRING CORE
 spring:
   application:
-    name: java17 with spring-boot 2.7
+    name: java21 with spring-boot 3.5
 # OUTPUT
   output:
     ansi:
