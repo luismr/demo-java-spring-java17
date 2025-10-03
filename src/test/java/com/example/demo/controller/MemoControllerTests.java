@@ -3,14 +3,13 @@ package com.example.demo.controller;
 import com.example.demo.entity.Memo;
 import com.example.demo.service.MemoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
+
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -20,7 +19,7 @@ import java.nio.charset.Charset;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -29,9 +28,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * コントローラーの単体テスト
  */
-@RunWith(SpringRunner.class)
+
 @WebMvcTest(MemoController.class)
-public class MemoControllerTests {
+class MemoControllerTests {
 
     @Autowired
     private MockMvc mvc;
@@ -41,17 +40,16 @@ public class MemoControllerTests {
     @MockBean
     private MemoService memoService;
 
-    private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
-            MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+    private MediaType contentType = MediaType.APPLICATION_JSON;
 
     @Test
-    public void getMemo() throws Exception {
+    void getMemo() throws Exception {
         Memo expected = Memo.of(1L, "test title", "test description");
         String expectedJson = objectMapper.writeValueAsString(expected);
         Mockito.when(memoService.findById(anyLong())).thenReturn(Optional.ofNullable(expected));
 
         RequestBuilder builder = MockMvcRequestBuilders.get("/memo/{id}", 1L)
-                .accept(MediaType.APPLICATION_JSON_UTF8);
+                .accept(MediaType.APPLICATION_JSON);
 
         MvcResult result = mvc.perform(builder)
                 .andExpect(status().isOk())
